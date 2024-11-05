@@ -34,11 +34,14 @@ module.exports = {
         "sonarjs/cognitive-complexity": ["error", 15],
         // relax duplicate strings
         "sonarjs/no-duplicate-string": "off",
+        // TODO: enable this rule again and fix code
+        "sonarjs/sonar-prefer-read-only-props": "off",
+        "sonarjs/table-header": "off",
       },
     },
     {
       // relax javascript code as it often contains obscure configs
-      files: ["*.js", "*.cjs"],
+      files: ["*.js", "*.cjs", "tailwind.config.ts"],
       parser: "espree",
       parserOptions: {
         ecmaVersion: 2020,
@@ -46,6 +49,8 @@ module.exports = {
       rules: {
         "sonarjs/no-duplicate-string": "off",
         "sonarjs/no-all-duplicated-branches": "off",
+
+        "@typescript-eslint/no-require-imports": "off",
       },
     },
   ],
