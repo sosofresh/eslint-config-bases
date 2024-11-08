@@ -25,6 +25,10 @@ module.exports = {
       rules: {
         "sonarjs/no-nested-template-literals": "off",
         "sonarjs/prefer-single-boolean-return": "off",
+        "sonarjs/todo-tag": "warn",
+
+        // no alternative in Bun
+        "sonarjs/no-misleading-array-reverse": "off",
       },
     },
     {
