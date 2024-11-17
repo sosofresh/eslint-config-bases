@@ -4,25 +4,25 @@
  */
 
 const mdxPatterns = {
-  files: ["*.mdx"],
+    files: ["*.mdx"],
 };
 
 module.exports = {
-  overrides: [
-    {
-      // For performance enable this only on mdx files
-      files: mdxPatterns.files,
-      extends: [
-        "plugin:mdx/recommended",
-        "plugin:@typescript-eslint/disable-type-checked",
-      ],
-      parser: "eslint-mdx",
-      parserOptions: {
-        project: null,
-      },
-      rules: {
-        "@typescript-eslint/consistent-type-exports": "off",
-      },
-    },
-  ],
+    overrides: [
+        {
+            // For performance enable this only on mdx files
+            files: mdxPatterns.files,
+            extends: [
+                "plugin:mdx/recommended",
+                "plugin:@typescript-eslint/disable-type-checked",
+            ],
+            parser: "eslint-mdx",
+            parserOptions: {
+                project: null,
+            },
+            rules: {
+                "@typescript-eslint/consistent-type-exports": "off",
+            },
+        },
+    ],
 };

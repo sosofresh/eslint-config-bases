@@ -4,7 +4,7 @@
  */
 
 const reactPatterns = {
-  files: ["*.{jsx,tsx}"],
+    files: ["*.{jsx,tsx}"],
 };
 
 /**
@@ -13,14 +13,14 @@ const reactPatterns = {
  */
 
 module.exports = {
-  overrides: [
-    {
-      files: [...reactPatterns.files],
-      extends: [
-        // @see https://tanstack.com/query/v4/docs/react/eslint/eslint-plugin-query
-        "plugin:@tanstack/eslint-plugin-query/recommended",
-      ],
-      // rules: { },
-    },
-  ],
+    overrides: [
+        {
+            files: [...reactPatterns.files],
+            extends: [
+                // @see https://tanstack.com/query/v4/docs/react/eslint/eslint-plugin-query
+                "plugin:@tanstack/eslint-plugin-query/recommended",
+            ],
+            // rules: { },
+        },
+    ],
 };

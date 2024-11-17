@@ -9,10 +9,10 @@ packages that lives in a [monorepo](https://github.com/belgattitude/nextjs-monor
 
 ## Features
 
-- **Monorepo friendly:** Each workspace can have its own config.
-- **Composable:** Compose your workspace eslint config from pre-defined bases.
-- **Peace of mind:** Plugins does not need to be installed per workspaces, thx to [@rushstack/eslint-patch](https://www.npmjs.com/package/@rushstack/eslint-patch).
-- **Performance!:** Plugins enabled on file conventions patterns to increase perf.
+-   **Monorepo friendly:** Each workspace can have its own config.
+-   **Composable:** Compose your workspace eslint config from pre-defined bases.
+-   **Peace of mind:** Plugins does not need to be installed per workspaces, thx to [@rushstack/eslint-patch](https://www.npmjs.com/package/@rushstack/eslint-patch).
+-   **Performance!:** Plugins enabled on file conventions patterns to increase perf.
 
 ## Install
 
@@ -24,10 +24,10 @@ $ yarn add --dev eslint @your-org/eslint-config-bases
 
 > PS: To keep the size low, if you use the following plugins:
 >
-> - **graphql**: `yarn add --dev @graphql-eslint/eslint-plugin`
-> - **mdx**: `yarn add --dev eslint-plugin-mdx`.
-> - **tailwind**: `yarn add --dev eslint-plugin-tailwindcss`.
->   In one line
+> -   **graphql**: `yarn add --dev @graphql-eslint/eslint-plugin`
+> -   **mdx**: `yarn add --dev eslint-plugin-mdx`.
+> -   **tailwind**: `yarn add --dev eslint-plugin-tailwindcss`.
+>     In one line
 >
 > ```bash
 > yarn add
@@ -43,62 +43,62 @@ file that extends any of the existing base configs. For example:
 require("@your-org/eslint-config-bases/patch/modern-module-resolution");
 
 module.exports = {
-  root: true,
-  parserOptions: {
-    tsconfigRootDir: __dirname,
-    project: "tsconfig.json",
-  },
-  ignorePatterns: ["**/node_modules", "**/.cache", "build", ".next"],
-  extends: [
-    "@your-org/eslint-config-bases/typescript",
-    "@your-org/eslint-config-bases/sonar",
-    "@your-org/eslint-config-bases/regexp",
-    "@your-org/eslint-config-bases/react",
-    "@your-org/eslint-config-bases/react-query",
-    "@your-org/eslint-config-bases/jest",
-    "@your-org/eslint-config-bases/rtl",
+    root: true,
+    parserOptions: {
+        tsconfigRootDir: __dirname,
+        project: "tsconfig.json",
+    },
+    ignorePatterns: ["**/node_modules", "**/.cache", "build", ".next"],
+    extends: [
+        "@your-org/eslint-config-bases/typescript",
+        "@your-org/eslint-config-bases/sonar",
+        "@your-org/eslint-config-bases/regexp",
+        "@your-org/eslint-config-bases/react",
+        "@your-org/eslint-config-bases/react-query",
+        "@your-org/eslint-config-bases/jest",
+        "@your-org/eslint-config-bases/rtl",
 
-    // "@your-org/eslint-config-bases/mdx",
+        // "@your-org/eslint-config-bases/mdx",
 
-    // "@your-org/eslint-config-bases/graphql-schema",
-    // "@your-org/eslint-config-bases/storybook",
-    // "@your-org/eslint-config-bases/playwright",
+        // "@your-org/eslint-config-bases/graphql-schema",
+        // "@your-org/eslint-config-bases/storybook",
+        // "@your-org/eslint-config-bases/playwright",
 
-    // Add specific rules for your framework if needed.
-    // ie:
-    // - nextjs: 'next/core-web-vitals',
-    // - remix:  '@remix-run/eslint-config',
-    // ...
+        // Add specific rules for your framework if needed.
+        // ie:
+        // - nextjs: 'next/core-web-vitals',
+        // - remix:  '@remix-run/eslint-config',
+        // ...
 
-    // Post configure the prettier base and run prettier
-    // without conflicts thx to eslint-plugin-prettier
-    "@your-org/eslint-config-bases/prettier-plugin",
-    // Alternatively to the above if you're already running prettier
-    // we can get a speed up by using on eslint-prettier-config
-    // "@your-org/eslint-config-bases/prettier-config",
-  ],
-  rules: {
-    // Specific global rules for your app or package
-    // Might help is next eslint plugin does not locate pages
-    // https://nextjs.org/docs/messages/no-html-link-for-pages#pagesdir
-    // '@next/next/no-html-link-for-pages': ['error', `${__dirname}/src/pages`],
-  },
-  overrides: [
-    // Specific file rules for your app or package
-  ],
+        // Post configure the prettier base and run prettier
+        // without conflicts thx to eslint-plugin-prettier
+        "@your-org/eslint-config-bases/prettier-plugin",
+        // Alternatively to the above if you're already running prettier
+        // we can get a speed up by using on eslint-prettier-config
+        // "@your-org/eslint-config-bases/prettier-config",
+    ],
+    rules: {
+        // Specific global rules for your app or package
+        // Might help is next eslint plugin does not locate pages
+        // https://nextjs.org/docs/messages/no-html-link-for-pages#pagesdir
+        // '@next/next/no-html-link-for-pages': ['error', `${__dirname}/src/pages`],
+    },
+    overrides: [
+        // Specific file rules for your app or package
+    ],
 };
 ```
 
 > **Tip:**
 >
-> - **Prettier**: `@your-org/eslint-config-bases/prettier-plugin` and `@your-org/eslint-config-bases/prettier-config` are
->   mutually exclusives. Choose one. The `prettier-config` suppose that you run prettier independently. The `prettier-plugin`
->   will run prettier for you. Easiest the `prettier-plugin`, fastest `prettier-config` (this mostly depends
->   if you set up and persist caches as well)
-> - **Performance**: Some rules are known to be slow (ie: `import/namespace`...). Slowest identified rules are disabled depending
->   on context (ie: `*.test.tsx?` might not need everything). Depending on project
->   it's possible to disable entirely some slow rules (ie: `'import/namespace': 'off'`). A good tip
->   run eslint with the `TIMING=1` to identify slow rules.
+> -   **Prettier**: `@your-org/eslint-config-bases/prettier-plugin` and `@your-org/eslint-config-bases/prettier-config` are
+>     mutually exclusives. Choose one. The `prettier-config` suppose that you run prettier independently. The `prettier-plugin`
+>     will run prettier for you. Easiest the `prettier-plugin`, fastest `prettier-config` (this mostly depends
+>     if you set up and persist caches as well)
+> -   **Performance**: Some rules are known to be slow (ie: `import/namespace`...). Slowest identified rules are disabled depending
+>     on context (ie: `*.test.tsx?` might not need everything). Depending on project
+>     it's possible to disable entirely some slow rules (ie: `'import/namespace': 'off'`). A good tip
+>     run eslint with the `TIMING=1` to identify slow rules.
 
 ## Bases
 
@@ -121,13 +121,13 @@ You can find the bases in [./src/bases](./src/bases).
 
 > **Notes**:
 >
-> - The order is important. Some bases will disable or tune previously defined
->   rules. For example the [react base](./src/bases/react.js) will tune the naming conventions
->   for function components and increase recommended cognitive complexity. The [typescript base](./src/bases/typescript.js)
->   will also relax conventions for javascript files.
-> - Based on filename conventions some rules are relaxed or disabled to avoid false positives and
->   keep a good level of performance. For example the [sonar base](./src/bases/sonar.js) won't run on
->   test and storybook files. If you work on different conventions the patterns must be updated.
+> -   The order is important. Some bases will disable or tune previously defined
+>     rules. For example the [react base](./src/bases/react.js) will tune the naming conventions
+>     for function components and increase recommended cognitive complexity. The [typescript base](./src/bases/typescript.js)
+>     will also relax conventions for javascript files.
+> -   Based on filename conventions some rules are relaxed or disabled to avoid false positives and
+>     keep a good level of performance. For example the [sonar base](./src/bases/sonar.js) won't run on
+>     test and storybook files. If you work on different conventions the patterns must be updated.
 
 ## Cyclic deps
 
@@ -140,8 +140,8 @@ to the extended rules.
 
 Two ways to work with prettier.
 
-- `@your-org/eslint-config-bases/prettier-plugin` - eslint will run prettier under the hood
-- `@your-org/eslint-config-bases/prettier-config` - eslint will just disable some conflicting rules (so you'll need to run prettier after)
+-   `@your-org/eslint-config-bases/prettier-plugin` - eslint will run prettier under the hood
+-   `@your-org/eslint-config-bases/prettier-config` - eslint will just disable some conflicting rules (so you'll need to run prettier after)
 
 The first method is recommended for simplicity. For best perf use the cache option to run eslint.
 
@@ -155,10 +155,10 @@ const { getPrettierConfig } = require("@your-org/eslint-config-bases/helpers");
  * @type {import('prettier').Config}
  */
 module.exports = {
-  ...getPrettierConfig(),
-  overrides: [
-    // whatever you need
-  ],
+    ...getPrettierConfig(),
+    overrides: [
+        // whatever you need
+    ],
 };
 ```
 
@@ -216,12 +216,12 @@ To tune the behaviour, you can add setting in the top level config
 
 ```js
 module.exports = {
-  settings: {
-    "mdx/code-blocks": true,
-    // optional, if you want to disable language mapper, set it to `false`
-    // if you want to override the default language mapper inside, you can provide your own
-    "mdx/language-mapper": {},
-  },
+    settings: {
+        "mdx/code-blocks": true,
+        // optional, if you want to disable language mapper, set it to `false`
+        // if you want to override the default language mapper inside, you can provide your own
+        "mdx/language-mapper": {},
+    },
 };
 ```
 
