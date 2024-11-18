@@ -41,6 +41,17 @@ module.exports = {
                 // TODO: enable this rule again and fix code
                 "sonarjs/sonar-prefer-read-only-props": "off",
                 "sonarjs/table-header": "off",
+                "sonarjs/no-misused-promises": [
+                    "error",
+                    {
+                        checksVoidReturn: {
+                            arguments: false,
+                            attributes: false,
+                        },
+                    },
+                ],
+                // react compiler
+                "sonarjs/jsx-no-constructed-context-values": "off",
             },
         },
         {
