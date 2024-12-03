@@ -24,6 +24,7 @@ module.exports = {
             extends: ["plugin:sonarjs/recommended-legacy"],
             rules: {
                 "sonarjs/no-nested-template-literals": "off",
+                "sonarjs/no-nested-functions": "off",
                 "sonarjs/prefer-single-boolean-return": "off",
                 "sonarjs/todo-tag": "warn",
 
